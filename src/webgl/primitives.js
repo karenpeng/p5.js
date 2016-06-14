@@ -36,7 +36,10 @@ require('./p5.Geometry');
  * </div>
  */
 p5.prototype.plane = function(){
-  var args = Array.prototype.slice.call(arguments);
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   var width = args[0] || 50;
   var height = args[1] || width;
   var detailX = typeof args[2] === 'number' ? args[2] : 1;
@@ -100,7 +103,10 @@ p5.prototype.plane = function(){
  * </div>
  */
 p5.prototype.box = function(){
-  var args = Array.prototype.slice.call(arguments);
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   var width = args[0] || 50;
   var height = args[1] || width;
   var depth = args[2] || width;
@@ -180,7 +186,10 @@ p5.prototype.box = function(){
  * </div>
  */
 p5.prototype.sphere = function(){
-  var args = Array.prototype.slice.call(arguments);
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   //@todo validate params here
   //
   var radius = args[0] || 50;
@@ -326,7 +335,10 @@ var _truncatedCone = function(
  * </div>
  */
 p5.prototype.cylinder = function(){
-  var args = Array.prototype.slice.call(arguments);
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   var radius = args[0] || 50;
   var height = args[1] || radius;
   var detailX = typeof args[2] === 'number' ? args[2] : 24;
@@ -382,7 +394,10 @@ p5.prototype.cylinder = function(){
  * </div>
  */
 p5.prototype.cone = function(){
-  var args = Array.prototype.slice.call(arguments);
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   var baseRadius = args[0] || 50;
   var height = args[1] || baseRadius;
   var detailX = typeof args[2] === 'number' ? args[2] : 24;
@@ -415,10 +430,14 @@ p5.prototype.cone = function(){
  * @param  {Number} radiusx           xradius of circle
  * @param  {Number} radiusy           yradius of circle
  * @param  {Number} radiusz           zradius of circle
- * @param  {Number} [detail]          number of segments,
+ * @param  {Number} [detailX]         optional: number of segments,
  *                                    the more segments the smoother geometry
  *                                    default is 24. Avoid detail number above
- *                                    150. It may crash the browser.
+ *                                    150, it may crash the browser.
+ * @param  {Number} [detailY]         optional: number of segments,
+ *                                    the more segments the smoother geometry
+ *                                    default is 16. Avoid detail number above
+ *                                    150, it may crash the browser.
  * @return {p5}                       the p5 object
  * @example
  * <div>
@@ -435,11 +454,13 @@ p5.prototype.cone = function(){
  * </code>
  * </div>
  */
-p5.prototype.ellipsoid =
-function(){
-  var args = Array.prototype.slice.call(arguments);
-  var detailX = typeof args[2] === 'number' ? args[2] : 24;
-  var detailY = typeof args[3] === 'number' ? args[3] : 24;
+p5.prototype.ellipsoid = function(){
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
+  var detailX = typeof args[3] === 'number' ? args[3] : 24;
+  var detailY = typeof args[4] === 'number' ? args[4] : 24;
   var radiusX = args[0] || 50;
   var radiusY = args[1] || radiusX;
   var radiusZ = args[2] || radiusX;
@@ -507,7 +528,10 @@ function(){
  * </div>
  */
 p5.prototype.torus = function(){
-  var args = Array.prototype.slice.call(arguments);
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   var detailX = typeof args[2] === 'number' ? args[2] : 24;
   var detailY = typeof args[3] === 'number' ? args[3] : 16;
 
@@ -668,7 +692,10 @@ p5.RendererGL.prototype.rect = function
 };
 
 p5.RendererGL.prototype.quad = function(){
-  var args = Array.prototype.slice.call(arguments);
+  var args = new Array(arguments.length);
+  for (var i = 0; i < args.length; ++i) {
+    args[i] = arguments[i];
+  }
   //@todo validate params here
   //
   var x1 = args[0],
