@@ -10,7 +10,7 @@ var p5 = require('./core');
  * Base class for all elements added to a sketch, including canvas,
  * graphics buffers, and other HTML elements. Methods in blue are
  * included in the core functionality, methods in brown are added
- * with the <a href="http://p5js.org/libraries/">p5.dom library</a>.
+ * with the <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>.
  * It is not called directly, but p5.Element
  * objects are created by calling createCanvas, createGraphics,
  * or in the p5.dom library, createDiv, createImg, createInput, etc.
@@ -90,11 +90,21 @@ p5.Element.prototype.parent = function(p) {
 
 /**
  *
- * Sets the ID of the element
+ * Sets the ID of the element. If no ID argument is passed in, it instead
+ * returns the current ID of the element.
  *
  * @method id
- * @param  {String} id ID of the element
- * @return {p5.Element}
+ * @param  {String} [id] ID of the element
+ * @return {p5.Element|String}
+ * @example
+ * <div><code class='norender'>
+ * function setup() {
+ *   var cnv = createCanvas(100, 100);
+ *   // Assigns a CSS selector ID to
+ *   // the canvas element.
+ *   cnv.id("mycanvas");
+ * }
+ * </code></div>
  */
 p5.Element.prototype.id = function(id) {
   if (arguments.length === 0) {
@@ -109,11 +119,12 @@ p5.Element.prototype.id = function(id) {
 
 /**
  *
- * Adds given class to the element
+ * Adds given class to the element. If no class argument is passed in, it
+ * instead returns a string containing the current class(es) of the element.
  *
  * @method class
- * @param  {String} class class to add
- * @return {p5.Element}
+ * @param  {String} [class] class to add
+ * @return {p5.Element|String}
  */
 p5.Element.prototype.class = function(c) {
   if (arguments.length === 0) {
